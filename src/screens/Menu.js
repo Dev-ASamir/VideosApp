@@ -74,8 +74,10 @@ const styles = StyleSheet.create({
     top: 20,
   },
   item: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '300',
+    marginTop: 10,
+    color : 'black'
   },
 });
 

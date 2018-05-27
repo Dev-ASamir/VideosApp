@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+import { Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { nameCreated, emailCreated, passwordCreated, signedIn } from '../actions';
+import { nameCreated, emailChanged, passwordChanged, signedIn } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from '../components/common';
 
 class Registration extends Component {
@@ -12,12 +12,12 @@ class Registration extends Component {
         this.props.nameCreated(text);
     }
 
-    createEmail(text) {
-        this.props.emailCreated(text);
+    onEmailChange(text) {
+        this.props.emailChanged(text);
     }
 
-    createPassword(text) {
-        this.props.passwordCreated(text);
+    onPasswordChange(text) {
+        this.props.passwordChanged(text);
     }
 
     onSignUpPress() {
@@ -40,47 +40,45 @@ class Registration extends Component {
 
     render() {
         return (
-            <ImageBackground style={styles.container} source={require('../images/bg.jpg')} >
-                <Card>
+            <Card>
 
-                    <CardSection>
-                        <Input
-                            label="Name"
-                            placeholder="Jane"
-                            value={this.props.name}
-                            onChangeText={this.createName.bind(this)}
-                        />
-                    </CardSection>
+                <CardSection>
+                    <Input
+                        label="Name"
+                        placeholder="Jane"
+                        value={this.props.name}
+                        onChangeText={this.createName.bind(this)}
+                    />
+                </CardSection>
 
-                    <CardSection>
-                        <Input
-                            label="Email"
-                            placeholder="email@gmail.com"
-                            onChangeText={this.createEmail.bind(this)}
-                            value={this.props.email}
-                        />
-                    </CardSection>
+                <CardSection>
+                    <Input
+                        label="Email"
+                        placeholder="email@gmail.com"
+                        onChangeText={this.onEmailChange.bind(this)}
+                        value={this.props.email}
+                    />
+                </CardSection>
 
-                    <CardSection>
-                        <Input
-                            secureTextEntry
-                            label="Password"
-                            placeholder="password"
-                            onChangeText={this.createPassword.bind(this)}
-                            value={this.props.password}
-                        />
-                    </CardSection>
+                <CardSection>
+                    <Input
+                        secureTextEntry
+                        label="Password"
+                        placeholder="password"
+                        onChangeText={this.onPasswordChange.bind(this)}
+                        value={this.props.password}
+                    />
+                </CardSection>
 
-                    <Text style={styles.errorTextStyle}>
-                        {this.props.error}
-                    </Text>
+                <Text style={styles.errorTextStyle}>
+                    {this.props.error}
+                </Text>
 
-                    <CardSection>
-                        {this.renderRegister()}
-                    </CardSection>
+                <CardSection>
+                    {this.renderRegister()}
+                </CardSection>
 
-                </Card>
-            </ImageBackground>
+            </Card>
         )
     }
 
@@ -93,21 +91,18 @@ const styles = {
         alignSelf: 'center',
         color: 'red'
     },
-    container:{
-        flex:1,
-       // justifyContent:'center',
-        backgroundColor:'#fff',
-      //  alignItems:'center'
-     },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
 };
 
 
-const mapStateToProps = ({ userdata }) => {
-    const { name, email, password, error, loading } = userdata;
-
+const mapStateToProps = ({ auth }) => {
+    const { name, email, password, error, loading } = auth;
     return { name, email, password, error, loading };
 };
 
 export default connect(mapStateToProps, {
-    nameCreated, emailCreated, passwordCreated, signedIn
+    nameCreated, emailChanged, passwordChanged, signedIn
 })(Registration);

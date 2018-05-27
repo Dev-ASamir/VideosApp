@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View ,Text , TouchableOpacity ,  ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Button, Spinner , Header} from '../components/common';
+import { Card, CardSection, Input, Button, Spinner } from '../components/common';
 import {  Actions } from 'react-native-router-flux';
 
 class LoginForm extends Component {
@@ -40,8 +40,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <ImageBackground style={styles.container} source={require('../images/bg.jpg')} >
-      <Card /*style={styles.cardStyl*e}*/>
+      <Card>
         <CardSection>
           <Input
             label="Email"
@@ -72,7 +71,6 @@ class LoginForm extends Component {
         <TouchableOpacity onPress={ this.onResetPress.bind(this)}>
           <Text style={styles.TextStyle}>forget password ?</Text>
         </TouchableOpacity>
-        <Text style={{color : 'blue'}}> ______________________________________________________</Text>
         <Text style={styles.TextStyle}>or</Text>
 
         <CardSection style={styles.cardSectionStyle}>
@@ -81,7 +79,6 @@ class LoginForm extends Component {
           </Button>
         </CardSection>
       </Card>
-      </ImageBackground>
     );
   }
 }
@@ -89,9 +86,7 @@ class LoginForm extends Component {
 const styles = {
   container:{
     flex:1,
-   // justifyContent:'center',
     backgroundColor:'#fff',
-  //  alignItems:'center'
  },
   errorTextStyle: {
     fontSize: 20,

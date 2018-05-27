@@ -1,12 +1,12 @@
-import { VIDEO_FETCH_SUCCESS,} from '../actions/types';
+import { VIDEO_FETCH_SUCCESS, } from '../actions/types';
 const INITIAL_STATE = {
-    videos : [],
+    videos: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case VIDEO_FETCH_SUCCESS:
-            return  { ...state, videos : action.payload };
+            return { ...state, videos: action.payload };
         default:
             return state;
     }

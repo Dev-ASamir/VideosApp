@@ -7,13 +7,11 @@ import {
     LayoutAnimation,
     TouchableOpacity,
     Image,
-    ImageBackground,
     AsyncStorage
 } from 'react-native';
 import { connect } from 'react-redux';
-import { Card, CardSection, Input, Button, Spinner, Header } from '../components/common';
+import { Card, CardSection, Button, Spinner, } from '../components/common';
 import { videoSave, addToWishList } from '../actions';
-//import * as actions from '../actions';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -32,19 +30,6 @@ class ListItem extends Component {
         LayoutAnimation.spring();
     }
 
-    componentWillMount() {
-    AsyncStorage.getItem('somekey')
-    .then(req => JSON.parse(req))
-    .then(json => console.log(json))
-    .catch(error => alert('error!'));
-    }
-
-    renderDescription() {
-        const { item, expanded } = this.props;
-        if (expanded) {
-            Actions.showVideoes({ param1: item, });
-        }
-    }
 
 
     onLikePress({video}){
@@ -52,22 +37,6 @@ class ListItem extends Component {
         this.props.addToWishList({video, wishlist});
     }
 
-
-    onButtonPress() {
-        const { videoId, title } = this.props.item;
-        const { wishList } = this.props;
-       if(wishList.indexOf(videoId)==-1)
-       {
-         wishList.push(videoId)
-        alert(wishList.length)
-        this.props.videoSave({ videoId, title  , wishList , uid: this.props.item.uid }) 
-    AsyncStorage.setItem('somekey', JSON.stringify(wishList))
-      .then(json => alert('success!'))
-      .catch(error => alert('error2')); }
-      else {
-          alert("alerdy saved")
-      }
-    }
 
     render() {
         const { titleStyle } = styles;

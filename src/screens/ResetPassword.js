@@ -13,8 +13,6 @@ class ResetPassword extends Component {
         this.props.newEmailChanged(text);
     }
 
-
-
     onResetPress() {
         const { email } = this.props;
         this.props.Reseted({ email })
@@ -34,7 +32,6 @@ class ResetPassword extends Component {
 
     render() {
         return (
-            <ImageBackground style={styles.container} source={require('../images/bg.jpg')} >
                 <Card>
 
                     <CardSection>
@@ -55,7 +52,6 @@ class ResetPassword extends Component {
                     </CardSection>
 
                 </Card>
-            </ImageBackground>
         )
     }
 }
@@ -69,9 +65,7 @@ const styles = {
     },
     container:{
         flex:1,
-       // justifyContent:'center',
         backgroundColor:'#fff',
-      //  alignItems:'center'
      },
 
   };

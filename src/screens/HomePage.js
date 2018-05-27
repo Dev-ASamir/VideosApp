@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, FlatList , Image , Text , TouchableOpacity} from 'react-native';
+import { View, FlatList , Image , Text , TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
 import { videosFetch } from '../actions';
-import { Card, CardSection, Input, Button, Spinner } from '../components/common';
+import { Card, CardSection, Button, Spinner } from '../components/common';
 import { Actions } from 'react-native-router-flux';
 import ListItem from './ListItem';
 
