@@ -8,7 +8,6 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER,
   NEW_EMAIL_CHANGED,
-
 } from './types';
 
 
@@ -37,7 +36,7 @@ export const passwordChanged = (text) => {
 
 export const signedIn = ({ email, password, name }) => {
 
-  if (!name) return (dispatch) => { loginUserFail(dispatch) };
+  if (name.length < 3 || name.charAt(0)===' ' ) return (dispatch) => { loginUserFail(dispatch) };
   return (dispatch) => {
     dispatch({ type: LOGIN_USER });
     console.log('calling sign up');

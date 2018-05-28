@@ -4,9 +4,8 @@ import VideoReducer from './VideoReducer';
 import WishListReducer from './WishListReducer';
 
 
-
 export default combineReducers({
   auth: AuthReducer,
   videos: VideoReducer,
-  wishlist : WishListReducer
+  wishlist : WishListReducer,
 });

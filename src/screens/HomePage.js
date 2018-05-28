@@ -38,7 +38,7 @@ class HomePage extends Component {
       selectedItem: item,
     });
 
-  async componentWillMount() {
+  async componentDidMount() {
     await this.props.videosFetch();
     this.setState({ loading: true });
   }

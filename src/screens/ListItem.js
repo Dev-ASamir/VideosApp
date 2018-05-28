@@ -3,8 +3,6 @@ import {
     Text,
     TouchableWithoutFeedback,
     View,
-    NativeModules,
-    LayoutAnimation,
     TouchableOpacity,
     Image,
     AsyncStorage
@@ -15,10 +13,7 @@ import { videoSave, addToWishList } from '../actions';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const { UIManager } = NativeModules;
 
-UIManager.setLayoutAnimationEnabledExperimental &&
-    UIManager.setLayoutAnimationEnabledExperimental(true);
 
 class ListItem extends Component {
 
@@ -26,11 +21,6 @@ class ListItem extends Component {
         super(props);
         this.onLikePress = this.onLikePress.bind(this);
     }
-    componentWillUpdate() {
-        LayoutAnimation.spring();
-    }
-
-
 
     onLikePress({video}){
         const {wishlist} = this.props;
@@ -41,7 +31,7 @@ class ListItem extends Component {
     render() {
         const { titleStyle } = styles;
         const { videoId, title, image } = this.props.item;
-        const { item, expanded, wishlist } = this.props;
+        const { item, wishlist } = this.props;
 
         const index = wishlist.findIndex(video=> video.videoId == item.videoId);
         const heartColor = index == -1 ? "#333" : "red";

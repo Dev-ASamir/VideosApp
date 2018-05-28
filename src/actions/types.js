@@ -8,3 +8,4 @@ export const NEW_EMAIL_CHANGED = 'new_email_changed';
 export const  VIDEO_FETCH_SUCCESS = 'video_fetch_success';
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
 export const REMOVE_FORM_WISHLIST = 'REMOVE_FORM_WISHLIST';
+

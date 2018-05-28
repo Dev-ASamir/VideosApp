@@ -3,8 +3,11 @@ import { Actions } from 'react-native-router-flux';
 import {
   VIDEO_FETCH_SUCCESS,
   ADD_TO_WISHLIST,
-  REMOVE_FORM_WISHLIST
+  REMOVE_FORM_WISHLIST,
 } from './types';
+
+
+
 
 export const videosFetch = () => {
   return (dispatch) => {
