@@ -29,7 +29,7 @@ export default function Menu({ onItemSelected }) {
         
       </View>
       <Text
-         onPress={ ()=> Actions.favoriteList() }
+         onPress={ ()=> { Actions.favoriteList() }}
         style={styles.item}
       >
         My Playlist

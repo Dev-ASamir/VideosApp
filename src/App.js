@@ -13,7 +13,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 const persistConfig = {
     key: 'root',
     storage : AsyncStorage,
-    
+    blacklist: ['auth']
   }
 
 const persistedReducer = persistReducer(persistConfig, reducers);

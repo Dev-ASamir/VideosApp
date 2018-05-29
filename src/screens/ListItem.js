@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection, Button, Spinner, } from '../components/common';
-import { videoSave, addToWishList } from '../actions';
+import { addToWishList } from '../actions';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -92,4 +92,4 @@ const mapStateToProps = (state) => {
     return { videoId, title , wishlist}
 }
 
-export default connect(mapStateToProps, { videoSave, addToWishList })(ListItem);
+export default connect(mapStateToProps, { addToWishList })(ListItem);
